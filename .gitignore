@@ -1,0 +1,45 @@
+# ---------------------------------------------------------------------------
+# Paper PDFs are NOT redistributed in this repository.
+#
+# arXiv's default submission licence ("arXiv.org perpetual, non-exclusive
+# license") does not grant third parties redistribution rights. Individual
+# papers may be CC-BY, but that has to be checked per paper, so the corpus is
+# kept locally and referenced by arXiv ID in research/paper-index.md instead.
+#
+# To keep a local copy: place PDFs in papers/<category>/ — they stay ignored.
+# To publish them anyway (only after checking each licence), delete the two
+# lines below.
+# ---------------------------------------------------------------------------
+papers/**/*.pdf
+*.pdf
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# Secrets / config
+.env
+.env.local
+*.key
+
+# Experiment outputs
+experiments/**/runs/
+experiments/**/results/
+experiments/**/*.jsonl
+!experiments/**/example_*.jsonl
+outputs/
+logs/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
