@@ -137,11 +137,46 @@ Fifteen questions drive the project. Each is assessed in [`research/open-researc
 - **[`research/paper-index.md`](research/paper-index.md)** — all 40, with research question, method, findings, limitations, and verification status
 - **[`research/literature-review.md`](research/literature-review.md)** — synthesis organized by argument, including the contradictions
 - **[`research/terminology.md`](research/terminology.md)** — 15 concepts, each with definition, distinction, metrics, and sources
+- **[`research/threat-model.md`](research/threat-model.md)** — the security view: attack surface, graded attack classes, defensive controls
 - **[`sources/source-validation.md`](sources/source-validation.md)** — how everything was checked
+- **[`sources/media-sources.md`](sources/media-sources.md)** — non-academic sources (context only, never evidence)
 
 ### 📄 A note on the PDFs
 
 **The paper PDFs are not stored in this repository.** arXiv's default licence grants arXiv distribution rights, not third-party redistribution rights. Each entry in the index carries its arXiv ID and link; `papers/` holds the category structure so a local corpus can be rebuilt in place. See [`sources/source-validation.md`](sources/source-validation.md).
+
+---
+
+## Security
+
+The same phenomena, read as an attack surface rather than a reliability problem — in [`research/threat-model.md`](research/threat-model.md).
+
+This is not a rebrand. **Four of the 40 papers are classified `cs.CR` (Cryptography and Security) by their own authors** — including both of the corpus's most direct hallucination-cascade papers (`2606.07937`, `2606.07941`).
+
+**The load-bearing insight:** `2606.16710` shows misinformation propagating in **benign** systems with no attacker at all, while `2603.04474` weaponizes the identical mechanism. The natural failure rate is the attacker's proof-of-concept — so reliability hardening and security hardening are the same work.
+
+**The trust boundary nobody enforces:**
+
+> **Peer agent output is untrusted input.**
+
+A peer's claim enters the next agent's context as ordinary text, indistinguishable from a user fact unless provenance is tracked. And the bias runs the wrong way: `2608.03421` found **false testimony is adopted more readily than truthful testimony** — then kept propagating through honest agents **after the deceiver left the conversation**. Removing the attacker does not remediate the system.
+
+Attack classes are graded by what the corpus actually demonstrates:
+
+| | Class | Grade |
+|---|---|---|
+| A1 | Error seed injection — one claim is the entire payload | 🔴 Demonstrated |
+| A2 | False testimony — truth recovery 72.50% → 14.17% | 🔴 Demonstrated |
+| A3 | Sycophancy exploitation — conformity high at just K=2 peers | 🟠 Evidenced |
+| A4 | Consensus manipulation — phase transition driven by temperature | 🟠 Evidenced |
+| A7 | Topology/contagion — epidemic model, invasion thresholds | 🟠 Evidenced |
+| A5 | Memory poisoning | 🟡 Plausible |
+| A6 | Verifier subversion | 🟡 Plausible |
+| A8 | **Prompt injection** | ⚫ **Not covered — zero papers** |
+
+> **⚠️ Do not cite this repository as evidence about prompt injection.** The corpus covers a false *claim* being believed, not a false *instruction* being obeyed. Acquiring that literature is the security track's top priority.
+
+The security article for this track is outlined in [`article/security-article-outline.md`](article/security-article-outline.md).
 
 ---
 
@@ -191,6 +226,7 @@ multi-agent-hallucination-research/
 │   ├── research-map.md      # working hypothesis, architectures, metrics
 │   ├── literature-review.md # synthesis by argument
 │   ├── terminology.md       # 15 concepts, precisely distinguished
+│   ├── threat-model.md      # security view: attack classes, controls
 │   ├── open-research-questions.md
 │   └── paper-index.md       # the verified 40-paper index
 ├── experiments/
@@ -198,9 +234,9 @@ multi-agent-hallucination-research/
 │   └── experiment-01..04/   # designs with pre-registered predictions
 ├── benchmarks/              # existing benchmarks + what's missing
 ├── diagrams/                # figure sources
-├── article/                 # outline, draft, figure specs
+├── article/                 # outlines (reliability + security), draft, figures
 ├── notes/                   # working notes, project origin
-└── sources/                 # verification methodology
+└── sources/                 # verification methodology, media sources
 ```
 
 ---
@@ -216,6 +252,7 @@ multi-agent-hallucination-research/
 | ✅ | Zero duplicates (byte-level and near-duplicate checks) |
 | ✅ | Terminology, literature synthesis, research questions written |
 | ✅ | Experiment framework scaffolded; four experiments designed |
+| ✅ | Security threat model written; attack classes graded by evidence |
 | ⬜ | Full-text reading pass (index entries marked `TODO`) |
 | ⬜ | Provider adapters implemented |
 | ⬜ | Any experiment run |
@@ -239,8 +276,11 @@ Implement one provider adapter. Run experiment-04 arms A vs B: verifier failure 
 **Phase 4 — Propagation benchmark** ⬜
 Claim-level ground truth, injectable seeds, provenance tracking, paired control arms.
 
-**Phase 5 — Article** ⬜
-Technical article grounded in the literature and this repository's own results.
+**Phase 5 — Articles** ⬜
+Two technical articles grounded in the literature and this repository's own results: the reliability piece ([`article-outline.md`](article/article-outline.md)) and the security piece ([`security-article-outline.md`](article/security-article-outline.md)).
+
+**Security track — parallel** ⬜
+Acquire prompt-injection literature (corpus coverage is currently zero), then map attack classes onto the current OWASP LLM Top 10 and MITRE ATLAS.
 
 ---
 

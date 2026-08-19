@@ -2,6 +2,8 @@
 
 How the 40-paper corpus was verified, what was confirmed, and what was not.
 
+> **Non-academic sources** (videos, talks, industry reports) are recorded separately in [`media-sources.md`](media-sources.md). They are context, never evidence.
+
 ---
 
 ## Why PDFs are not in this repository

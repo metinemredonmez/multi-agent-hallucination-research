@@ -18,6 +18,10 @@ Diagrams for the article. Source files go in [`../diagrams/`](../diagrams/).
 | 10 | **Verifier confirmation bias** | Verifier inheriting the generator's premise; asymmetric alternative | Medium | `2603.24579` — conceptual |
 | 11 | **Three consensus mechanisms** | Sycophancy vs confabulation vs collapse, side by side | Medium | `2605.00914`, `2602.09341` |
 | 12 | **Corpus timeline** | 2023 optimism → 2025 doubt → 2026 mechanism | Low | This corpus |
+| 13 | **Trust boundary diagram** | Where agent→agent sits; which boundaries are enforced by default | **High** (security) | Own — `threat-model.md` §2 |
+| 14 | **Persistence after removal** | Truth recovery 72.50%→14.17%; belief surviving the deceiver's exit | **High** (security) | `2608.03421` |
+| 15 | **Attack-class grading** | A1–A8 by demonstrated / evidenced / plausible / out-of-corpus | Medium | Own — `threat-model.md` §3 |
+| 16 | **Nominal vs real quorum** | 3 same-model agents rendered as one correlated vote | Medium | `2602.09341`, `2608.00243` |
 
 ## Style
 
