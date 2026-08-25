@@ -235,7 +235,7 @@ multi-agent-hallucination-research/
 ├── benchmarks/              # existing benchmarks + what's missing
 ├── diagrams/                # figure sources
 ├── article/                 # outlines (reliability + security), draft, figures
-├── notes/                   # working notes, project origin
+├── notes/                   # working notes, backlog, project origin
 └── sources/                 # verification methodology, media sources
 ```
 
