@@ -13,6 +13,9 @@
 papers/**/*.pdf
 *.pdf
 
+# The corpus archive IS tracked - see corpus/README.md
+!corpus/*.zip
+
 # Python
 __pycache__/
 *.py[cod]

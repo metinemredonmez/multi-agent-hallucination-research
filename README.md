@@ -141,9 +141,17 @@ Fifteen questions drive the project. Each is assessed in [`research/open-researc
 - **[`sources/source-validation.md`](sources/source-validation.md)** — how everything was checked
 - **[`sources/media-sources.md`](sources/media-sources.md)** — non-academic sources (context only, never evidence)
 
-### 📄 A note on the PDFs
+### 📄 Getting the papers
 
-**The paper PDFs are not stored in this repository.** arXiv's default licence grants arXiv distribution rights, not third-party redistribution rights. Each entry in the index carries its arXiv ID and link; `papers/` holds the category structure so a local corpus can be rebuilt in place. See [`sources/source-validation.md`](sources/source-validation.md).
+The full corpus is available as a single archive: **[`corpus/multi-agent-hallucination-corpus-40-papers.zip`](corpus/multi-agent-hallucination-corpus-40-papers.zip)** — 87 MB, 40 PDFs, 830 pages.
+
+```bash
+unzip corpus/multi-agent-hallucination-corpus-40-papers.zip -d .
+```
+
+This places every PDF in its category folder. Loose PDFs stay gitignored; only the archive is tracked.
+
+**⚠️ Copyright.** The papers belong to their respective authors and publishers under their own licenses and are **not** covered by this repository's MIT license. arXiv's default submission license grants *arXiv* distribution rights, not third parties — individual papers may be CC-BY, but this has not been checked per paper. Every paper is freely available from arXiv by the ID in its filename. Authors who would prefer their paper not be included are welcome to open an issue. See [`corpus/README.md`](corpus/README.md).
 
 ---
 
@@ -221,7 +229,8 @@ No API key is required to inspect the scaffolding; the `echo` provider exercises
 
 ```text
 multi-agent-hallucination-research/
-├── papers/                  # 40 papers in 8 categories (PDFs gitignored)
+├── corpus/                  # the 40-paper archive (87 MB zip)
+├── papers/                  # 40 papers in 8 categories (extract archive here)
 ├── research/
 │   ├── research-map.md      # working hypothesis, architectures, metrics
 │   ├── literature-review.md # synthesis by argument
